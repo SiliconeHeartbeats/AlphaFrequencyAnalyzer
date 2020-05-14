@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FREQUENCYANALYZER_H
+#define FREQUENCYANALYZER_H
 #include <iostream>
 #include <string>
 #include <vector>
@@ -31,7 +32,7 @@ public:
 		for (int i = 0; i < inputquote.size(); i++) {
 			for (int j = 0; j < 26; j++) {
 				if (inputquote.at(i) == symbols.at(j)) {
-					occurences.at(j) = occurences.at(j) ++;
+					occurences.at(j)++;
 				}
 
 			}
@@ -79,3 +80,5 @@ public:
 		return;
 	}
 };
+
+#endif
