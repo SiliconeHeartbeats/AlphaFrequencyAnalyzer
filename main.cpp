@@ -1,4 +1,3 @@
-#pragma once
 #include "FrequencyAnalyzer.h"
 
 ANFrequency crypto;
