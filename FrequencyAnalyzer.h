@@ -5,7 +5,7 @@
 #include <vector>
 
 class ANFrequency {
-
+public:
 
 	std::vector<char> inputQuote; //input chars
 	std::vector<char> whiteSpaceFreeInput; //input chars with whitespace removed to calculate letter frequency
@@ -17,20 +17,34 @@ class ANFrequency {
 	std::vector<int> spacePoints;		//keeps track of every space that whitespace was used
 	std::vector<float> frequency;		//stores number of times a letter appears proportional to input size
 
-public:
+//public:
 	//Converts upper case letters to lower case and replaces the appropriate element. Ignores numbers.
-	//Any cipher based on the variance of case value is made unsolvable by this function.
+	//Any cipher based on the variance of case value is made unsolvable by this function. Also scans and removes some punctuation.
 	void homogenize(std::vector<char>& input) {
 		
 		std::vector<char> upperCaseSymbols = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
 											  'S','T','U','V','W','X','Y','Z' };
-		
-		for (int i = 0; i < input.size(); i++) {
+		std::vector<char> punctuationSymbols = { '.', ',', '!', '&', '?', '*', '#', '@','/'};
+		int i = 0;
+		int k = 0;
+		int &ri = i;
+		int &rk = k;
+		for (i = 0; i < input.size(); i++) {
 			for (int j = 0; j < 26; j++) {
 				if (input.at(i) == upperCaseSymbols.at(j)) {
 					input.at(i) = symbols.at(j);
+				} 
+			}
+			for ( k = 0; k < 8; k++) {
+				if (input.size() > 0) {
+					if ((input.at(i) == punctuationSymbols.at(k)) && (input.size() != 0)) {
+						input.erase(input.begin() + i);
+						ri = 0;
+						rk = -1;
+					}
 				}
 			}
+		
 		}
 		
 		return;
@@ -103,6 +117,8 @@ public:
 			std::cout << "\n";
 		}
 		return;
+		
+
 	}
 };
 
