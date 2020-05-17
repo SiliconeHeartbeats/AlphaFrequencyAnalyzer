@@ -18,8 +18,8 @@ class ANFrequency {
 	std::vector<float> frequency;		//stores number of times a letter appears proportional to input size
 
 public:
-
-
+	//Converts upper case letters to lower case and replaces the appropriate element. Ignores numbers.
+	//Any cipher based on the variance of case value is made unsolvable by this function.
 	void homogenize(std::vector<char>& input) {
 		
 		std::vector<char> upperCaseSymbols = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
