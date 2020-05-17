@@ -48,7 +48,7 @@ public:
 			}
 			else spacepoints.push_back(i);
 		}
-		return;
+		return ;
 	}
 //adds decimal percentage of appearance of a given letter to frequency vector. these values are multiplied by 100
 //to make them more intuitive as percentages
