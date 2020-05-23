@@ -1,6 +1,6 @@
 #include "FrequencyAnalyzer.h"
 
-ANFrequency crypto;
+ANFrequency Crypto;
 
 int main() {
     int input = 0;
