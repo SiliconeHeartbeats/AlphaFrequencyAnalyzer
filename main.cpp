@@ -4,8 +4,8 @@ ANFrequency Crypto;
 
 int main() {
     int input = 0;
-    crypto.build();
-    crypto.printfrequency();
+    Crypto.build();
+    Crypto.printfrequency();
     std::cin >> input;
     return 0;
 }
