@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 class ANFrequency {
 public:
@@ -19,7 +20,7 @@ public:
 
 //public:
 	//Converts upper case letters to lower case and replaces the appropriate element. Ignores numbers.
-	//Any cipher based on the variance of case value is made unsolvable by this function. Also scans and removes some punctuation.
+	//Any cipher based on the variance of case value is made unsolvable by this function.
 	void homogenize(std::vector<char>& input) {
 		
 		std::vector<char> upperCaseSymbols = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
@@ -59,6 +60,17 @@ public:
 		std::copy(inputquot3.begin(), inputquot3.end(), std::back_inserter(inputQuote));
 		homogenize(inputQuote);
 		return;
+	}
+
+	void scanfile() {
+		std::string inputquot3;
+		std::string filename;
+		std::cout << "\nEnter filename pls ";
+		std::cin >> filename;
+		std::ifstream inf{ filename };
+		std::getline(inf, inputquot3);
+		std::copy(inputquot3.begin(), inputquot3.end(), std::back_inserter(inputQuote));
+		homogenize(inputQuote);
 	}
 	//increments the appropriate element of occurences for every letter used in input
 	//
@@ -100,6 +112,14 @@ public:
 	void build() {
 		
 		scan();
+		letterCount();
+		concatenater();
+		averages();
+		return;
+	}
+
+	void scanbuild() {
+		scanfile();
 		letterCount();
 		concatenater();
 		averages();
